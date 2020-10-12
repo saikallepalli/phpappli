@@ -1,58 +1,74 @@
 <?php
+if(isset($_POST["Submit1"])){
 
-/**
- * Laravel - A PHP Framework For Web Artisans
- *
- * @package  Laravel
- * @author   Taylor Otwell <taylor@laravel.com>
- */
+ $name=$_POST['name'];
+ 
+ $email=$_POST['email'];
 
-/*
-|--------------------------------------------------------------------------
-| Register The Auto Loader
-|--------------------------------------------------------------------------
-|
-| Composer provides a convenient, automatically generated class loader for
-| our application. We just need to utilize it! We'll simply require it
-| into the script here so that we don't have to worry about manual
-| loading any of our classes later on. It feels nice to relax.
-|
-*/
+ $company =$_POST['company'];
+ 
+ $location =$_POST['location'];
+ ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
 
-require __DIR__.'/bootstrap/autoload.php';
+    <!-- Font Icon -->
 
-/*
-|--------------------------------------------------------------------------
-| Turn On The Lights
-|--------------------------------------------------------------------------
-|
-| We need to illuminate PHP development, so let us turn on the lights.
-| This bootstraps the framework and gets it ready for use, then it
-| will load up this application so that we can run it and send
-| the responses back to the browser and delight our users.
-|
-*/
+    <!-- Main css -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body style="background-color: #0066ff;">
 
-$app = require_once __DIR__.'/bootstrap/app.php';
+    <div class="main">
 
-/*
-|--------------------------------------------------------------------------
-| Run The Application
-|--------------------------------------------------------------------------
-|
-| Once we have the application, we can handle the incoming request
-| through the kernel, and send the associated response back to
-| the client's browser allowing them to enjoy the creative
-| and wonderful application we have prepared for them.
-|
-*/
+        <section class="signup">
+            <!-- <img src="images/signup-bg.jpg" alt=""> -->
+            <div class="container">
+                <div class="signup-content">
+                    <form method="POST" id="signup-form" class="signup-form">
+                        
+                        <div class="form-group">
+                            <input type="text" class="form-input"  name="name" id="name" placeholder=" Name" required >
+                        </div>
+						<!--<div class="form-group">
+                            <input type="text" class="form-input" name="title" id="title" placeholder=" Title" required >
+                        </div>-->
+                        <div class="form-group">
+                            <input type="email" class="form-input" name="email" id="email" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"  required >
+                        </div>
+						
+					 <!-- <div class="form-group">
+                            <input type="text" class="form-input" name="password" id="password" placeholder="Password"/>
+                            <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-input" name="re_password" id="re_password" placeholder="Repeat your password"/>
+                        </div>-->
+						  <div class="form-group">
+                            <input type="text" class="form-input" name="company" id="company" placeholder="Company" required >
+                        </div>
+						<div class="form-group">
+                            <input type="text" class="form-input" name="location" id="location" placeholder="Location" required >
+                        </div>
+                       
+                        <div class="form-group">
+                            <input type="submit" name="Submit1" id="submit" class="form-submit" value="Submit"/>
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
+        </section>
 
-$kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
+    </div>
 
-$response = $kernel->handle(
-    $request = Illuminate\Http\Request::capture()
-);
-
-$response->send();
-
-$kernel->terminate($request, $response);
+    <!-- JS -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
